@@ -2861,7 +2861,7 @@
     postcss-value-parser "^3.3.1"
     url-regex "^4.1.1"
 
-"@stylable/core@3.2.1", "@stylable/core@^3.2.1":
+"@stylable/core@^3.2.1":
   version "3.2.1"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/@stylable/core/-/core-3.2.1.tgz#8a8f54295b3a9a50edc492cb2b96c8f58ed608e9"
   integrity sha1-io9UKVs6mlDtxJLLK5bI9Y7WCOk=

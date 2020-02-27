@@ -6,11 +6,10 @@ import {
 
 function getStylableJest() {
   if (isStylableDependencies()) {
-    // @ts-ignore
     return importFrom(getYoshiStylableDependenciesDir(), '@stylable/jest');
   }
 
   return require('@stylable/jest');
 }
 
-module.exports = getStylableJest();
+export = getStylableJest();

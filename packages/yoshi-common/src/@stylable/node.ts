@@ -6,7 +6,7 @@ import {
 
 function getStylableModuleFactory() {
   if (isStylableDependencies()) {
-    // @ts-ignore
+    // @ts-ignore return type of importFrom is unknown
     return importFrom(
       getYoshiStylableDependenciesDir(),
       '@stylable/module-utils',
@@ -18,7 +18,7 @@ function getStylableModuleFactory() {
 
 function getStylableResolveNamespaceFactory() {
   if (isStylableDependencies()) {
-    // @ts-ignore
+    // @ts-ignore return type of importFrom is unknown
     return importFrom(getYoshiStylableDependenciesDir(), '@stylable/node')
       .resolveNamespaceFactory;
   }

@@ -6,7 +6,7 @@ import {
 
 function getStylableWebpackPlugin() {
   if (isStylableDependencies()) {
-    // @ts-ignore
+    // @ts-ignore return type of importFrom is unknown
     return importFrom(
       getYoshiStylableDependenciesDir(),
       '@stylable/webpack-plugin',
