@@ -57,18 +57,23 @@ export class ServerProcess {
       cwd: this.cwd,
     });
 
-    this.child = child_process.fork(this.serverFilePath, [], {
-      stdio: 'pipe',
-      execArgv: [inspectArg]
-        .filter(notUndefined)
-        .map(arg => arg.replace('debug', 'inspect')),
-      env: {
-        ...process.env,
-        PORT: `${PORT}`,
-        ...bootstrapEnvironmentParams,
-        ...this.env,
+    this.child = child_process.fork(
+      path.join(__dirname, 'server-process-worker.js'),
+      [],
+      {
+        stdio: 'pipe',
+        execArgv: [inspectArg]
+          .filter(notUndefined)
+          .map(arg => arg.replace('debug', 'inspect')),
+        env: {
+          ...process.env,
+          PORT: `${PORT}`,
+          ...bootstrapEnvironmentParams,
+          ...this.env,
+          __SERVER_FILE__: path.join(process.cwd(), this.serverFilePath),
+        },
       },
-    });
+    );
 
     const serverLogWriteStream = fs.createWriteStream(
       path.join(this.cwd, SERVER_LOG_FILE),
