@@ -55,7 +55,7 @@ To be added.
 ### Troubleshooting new app registration
 Currently, new dev center is not supporting some features.
 
-##### Needed fields is missing for newly created apps.
+##### Needed fields is missing for newly created apps
 You can find out that your app is not appearing on your website after installation or clicking `Test Your App`. Other issue is that only one widget is loading on the website.
 
 To review your app's model, visit
@@ -76,3 +76,11 @@ Since Dev Center is not supporting it for now, we can use RPC calls bypassing De
 - Paste your WixSession token to `Identity` -> `WixSession` at the bottom of RPC console. You can take this token from your cookie. It's everything that is going after `wixSession2=` untill `;` or end of string.
 
 > All fields will be set to default after you update it from Dev Center again. So, if you have some issues and using RPC to fix it, please don't update the same components via Dev Center, untill issues will be resolved on it's side.
+
+##### Versions are not being updated automatically
+Currently, Dev Center is not updating new versions via `.ci_config`. Only manual updating approach is working if you created a new RC version.
+Just go to component's configuration and update versions for all needed urls:
+```diff
+- https://static.parastorage.com/services/{artifactId}/1.34.0/labelViewerWidget.bundle.min.js
++ https://static.parastorage.com/services/{artifactId}/1.35.0/labelViewerWidget.bundle.min.js
+```
